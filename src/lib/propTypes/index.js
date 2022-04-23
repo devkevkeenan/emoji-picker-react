@@ -31,6 +31,7 @@ export const configPropsShape = PropTypes.shape({
 
 export const configPropTypes = {
   emojiUrl: PropTypes.string,
+  generateEmojiPath: PropTypes.func,
   preload: PropTypes.bool,
   skinTone: PropTypes.string,
   groupNames: groupNamesPropType,
