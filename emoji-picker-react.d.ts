@@ -27,6 +27,7 @@ declare module 'emoji-picker-react' {
   export interface IEmojiPickerProps {
     onEmojiClick: (event: React.MouseEvent, data: IEmojiData) => void;
     emojiUrl?: string;
+    generateEmojiPath: (unified: string, config: IEmojiPickerProps) => void;
     preload?: boolean;
     skinTone?: SkinTones;
     disableAutoFocus?: boolean;
