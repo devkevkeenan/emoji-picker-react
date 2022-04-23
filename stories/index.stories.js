@@ -5,6 +5,9 @@ import EmojiPicker, { SKIN_TONE_MEDIUM_DARK } from '../src';
 const CDN_URL =
   'https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64';
 
+const OPENMOJI_CDN_URL =
+  'https://cdn.jsdelivr.net/npm/@svgmoji/openmoji@2.0.0/svg';
+
 // eslint-disable-next-line
 const log = console.log;
 
@@ -167,6 +170,28 @@ storiesOf('EmojiPicker', module)
             },
           ]}
         />
+      </div>
+    );
+  })
+  .add('Custom Path Generation', () => {
+    const [isShown, setIsShown] = useState(true);
+
+    const generateEmojiPath = (unified, config) => {
+      return unified
+        ? `${config.emojiUrl}/${unified.toUpperCase()}.svg`
+        : config.emojiUrl;
+    };
+
+    return (
+      <div>
+        <button onClick={() => setIsShown(!isShown)}>Toggle</button>
+        {isShown && (
+          <EmojiPicker
+            onEmojiClick={(e, em) => log(em)}
+            emojiUrl={OPENMOJI_CDN_URL}
+            generateEmojiPath={generateEmojiPath}
+          />
+        )}
       </div>
     );
   });
