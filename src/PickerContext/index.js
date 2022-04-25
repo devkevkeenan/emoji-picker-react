@@ -12,11 +12,16 @@ export function PickerContextProvider({
   recentlyUsed,
   onEmojiClick,
 }) {
+  const ignoreEmojis = config.ignoreEmojis.reduce((all, current) => {
+    all[current] = true;
+    return all;
+  }, {});
+
   const activeCategoryState = useState(null);
   const filterState = useState([]);
   const filterResult = useState(null);
   const seenGroupsState = useState({ [GROUP_NAME_PEOPLE]: true });
-  const missingEmojiState = useState({});
+  const missingEmojiState = useState(ignoreEmojis);
   const variationMenuState = useState(null);
   const skinToneSpreadState = useState(false);
   const activeSkinToneState = useState(config.skinTone);

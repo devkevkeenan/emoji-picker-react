@@ -31,6 +31,7 @@ import './style.css';
 const EmojiPicker = ({
   emojiUrl = DEFAULT_EMOJI_URL,
   generateEmojiPath = null,
+  ignoreEmojis = [],
   onEmojiClick,
   preload = false,
   native = false,
@@ -52,6 +53,7 @@ const EmojiPicker = ({
         skinTone,
         emojiUrl,
         generateEmojiPath,
+        ignoreEmojis,
         preload,
         native,
         groupNames: Object.assign(GROUP_NAMES_ENGLISH, groupNames),

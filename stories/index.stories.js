@@ -194,4 +194,22 @@ storiesOf('EmojiPicker', module)
         )}
       </div>
     );
+  })
+  .add('Ignore specific emojis', () => {
+    const [isShown, setIsShown] = useState(true);
+
+    const ignoreEmojis = ['1f923'];
+
+    return (
+      <div>
+        <button onClick={() => setIsShown(!isShown)}>Toggle</button>
+        {isShown && (
+          <EmojiPicker
+            onEmojiClick={(e, em) => log(em)}
+            emojiUrl={CDN_URL}
+            ignoreEmojis={ignoreEmojis}
+          />
+        )}
+      </div>
+    );
   });
