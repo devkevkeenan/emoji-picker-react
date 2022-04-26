@@ -3,7 +3,7 @@ declare module 'emoji-picker-react' {
   import {
     getRecentlyUsed as libGetRecentlyUsed,
     setRecentlyUsed as libSetRecentlyUsed,
-  } from './lib/recentlyUsed';
+  } from './src/lib/recentlyUsed';
 
   export const SKIN_TONE_NEUTRAL = 'neutral';
   export const SKIN_TONE_LIGHT = '1f3fb';
