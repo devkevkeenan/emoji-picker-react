@@ -1,5 +1,9 @@
 declare module 'emoji-picker-react' {
   import * as React from 'react';
+  import {
+    getRecentlyUsed as libGetRecentlyUsed,
+    setRecentlyUsed as libSetRecentlyUsed,
+  } from './lib/recentlyUsed';
 
   export const SKIN_TONE_NEUTRAL = 'neutral';
   export const SKIN_TONE_LIGHT = '1f3fb';
@@ -38,6 +42,13 @@ declare module 'emoji-picker-react' {
     groupNames?: Record<string, string>;
     groupVisibility?: Record<string, boolean>;
     native?: boolean;
+  }
+
+  export function getRecentlyUsed() {
+    return libGetRecentlyUsed() as Array<any> | void;
+  }
+  export function setRecentlyUsed(unified: string, originalUnified: string) {
+    return libSetRecentlyUsed(unified, originalUnified) as void;
   }
 
   const EmojiPicker: React.FC<IEmojiPickerProps>;
