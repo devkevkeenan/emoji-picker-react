@@ -166,6 +166,8 @@ export {
   SKIN_TONE_DARK,
 };
 
+export { getRecentlyUsed, setRecentlyUsed } from './lib/recentlyUsed';
+
 export default EmojiPicker;
 
 EmojiPicker.propTypes = {
