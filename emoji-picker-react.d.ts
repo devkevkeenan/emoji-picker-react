@@ -44,11 +44,16 @@ declare module 'emoji-picker-react' {
     native?: boolean;
   }
 
+  export interface IRecentlyUsedEmoji {
+    unified: string;
+    originalUnified: string;
+  }
+
   export function getRecentlyUsed() {
     return libGetRecentlyUsed() as Array<any> | void;
   }
-  export function setRecentlyUsed(unified: string, originalUnified: string) {
-    return libSetRecentlyUsed(unified, originalUnified) as void;
+  export function setRecentlyUsed(recentlyUsedEmoji: IRecentlyUsedEmoji) {
+    return libSetRecentlyUsed(recentlyUsedEmoji) as void;
   }
 
   const EmojiPicker: React.FC<IEmojiPickerProps>;
